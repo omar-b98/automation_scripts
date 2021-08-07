@@ -1,4 +1,5 @@
 from sdk.app_template_csclient.csclient import CSClient
+import yaml
 
 CSCinstance = CSClient("E3000 Router API IPsec configuration")
 
@@ -76,16 +77,16 @@ VPN_Data = {
 
 Router_Connection_Status = CSCinstance.get(Connection_Test_URL)
 
-print("Router_Connection_Status :\n", Router_Connection_Status)
+print("Router_Connection_Status :\n", yaml.dump(Router_Connection_Status, default_flow_style=False))
 
 Add_VPN_Response = CSCinstance.post(VPN_API_Config_URL, VPN_Data)
 
-print("Add_VPN_Response :\n", Add_VPN_Response)
+print("Add_VPN_Response :\n", yaml.dump(Add_VPN_Response, default_flow_style=False))
 
 Get_Configured_VPNs = CSCinstance.get(VPN_API_Config_URL)
 
-print("Get_Configured_VPNs :\n", Get_Configured_VPNs)
+print("Get_Configured_VPNs :\n", yaml.dump(Get_Configured_VPNs, default_flow_style=False))
 
 Get_VPNs_Status = CSCinstance.get(VPN_API_Status_URL)
 
-print("Get_VPNs_Status :\n", Get_VPNs_Status)
+print("Get_VPNs_Status :\n",  yaml.dump(Get_VPNs_Status, default_flow_style=False))
