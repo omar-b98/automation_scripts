@@ -1,1 +1,1 @@
-# automation_scripts
+# Python automation scripts
